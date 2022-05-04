@@ -1,0 +1,9 @@
+1.  Identity the aspects of your application that vary and separate them from what stays the same.
+    In other words, take the parts that vary and encapsulate them, so that ;ater you can alter or extend the parts that vary without affecting those that don't.
+
+2.  Program to an interface, not to an implementation. It really means "Program to a supertype."
+    The point is to actually exploit polymorphism by programming to a supertype so that the actual runtimes object isn't locked into the code.
+    And we could rephrase, "program to a supertype" as "the declared variable type of the variables should be a supertype, usually an abstract class or interface, so that the objects assigned to those varibales can be of any concrete implementation of the supertype, which means the class declaring them doesn't have to know about the actual object types."
+
+3.  Favor composition over inheritance.
+    Creating systems using composition gives us a lot more flexibility. Not only does it let you encapsulate a family of algorithms into their own set of classes, but it also lets you change behvaiour at runtime as long as the object that's been composed, implemnets the correct behvaiour interface.
