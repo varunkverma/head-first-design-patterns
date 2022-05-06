@@ -1,0 +1,18 @@
+- The Observer pattern defines a one-to-many dependency between objects so that when one object chnages state, all of its dependents are notified and updated automatically.
+
+- Publishers + Subscribers = Observer Pattern
+
+- How it works:
+    > The Subject object manages some important data.
+    > The observers have subscribed to (registered with) the subject to receive updates when the subject's data changes.
+    > When data in the Subject changes, the observers are notified.
+    > New data vlaues are communicated to the observers in some form when they change.
+
+- There are 2 interfaces - Subject and Observer
+    > Objects uses Subject interface to register as observers and also to remove themselves from being observers.
+      A concrete subject always implements the Subject interface. In addition to the register and remove methods, the concrete subject implements a notifyObservers() methods that is used to update all the current observers whenever state chnages.
+      The concrete subject may also have mthods for setting and getting its state.
+    > All potential observers need to implement the Observer interface. This interface has just one method, update(), that is called when the subject's state changes.
+      Concrete observers can be any class that implements the Observer interface. Each observer registers with a concrete subject to receive updates.
+
+- When two objects are loosely coupled, they can interact, but they typically have very little knowledge of each other. The observer pattern is a great example of loose coupling.

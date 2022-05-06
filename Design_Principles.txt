@@ -7,3 +7,6 @@
 
 3.  Favor composition over inheritance.
     Creating systems using composition gives us a lot more flexibility. Not only does it let you encapsulate a family of algorithms into their own set of classes, but it also lets you change behvaiour at runtime as long as the object that's been composed, implemnets the correct behvaiour interface.
+
+4.  Strive for loosely coupled designs between objects that interact. 
+    Loosely couple designs allow us to build flexible OO systems that can handle change because they minimize the interdependency between objects.
