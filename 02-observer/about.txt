@@ -16,3 +16,14 @@
       Concrete observers can be any class that implements the Observer interface. Each observer registers with a concrete subject to receive updates.
 
 - When two objects are loosely coupled, they can interact, but they typically have very little knowledge of each other. The observer pattern is a great example of loose coupling.
+
+- How Observer Pattern resonates with Design Principles:
+
+  1.  Identify the aspects of your application that vary and separate them from what stays the same.
+  .>  The that varies in the Observer Pattern is the state of the Subject and the number and types of Observers. With this pattern, you can vary the objects that are dependent on the state of the Subject, without having to change that Subject. That's called planning ahead.
+
+  2.  Program to an interface, not an implementaion.
+  .>  Both the Subject and Observers use interfaces. The Subject keeps track of objects implementing the Observer interface, while the Observers register with, and get notified by, the Subject interface. As seen, this keeps things nice and loosely coupled.
+
+  3. Favor composition over inheritance
+  .> The Observer Pattern uses composition to compose any number of Observers with their Subject. These relationships aren't set up by some kind of interface hierarchy. No, they are set up at runtime by composition.  

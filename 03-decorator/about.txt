@@ -1,0 +1,57 @@
+Ideology:
+    -   Classes should be open for extension, but closed for modification.
+    -   Our goal is to allow classes to be easily extended to incorporate new behvaiour without modifying existing code.
+    -   Through this we accomplish designs that are resilient to change and flexible enough to take on new functionality to meet changing requirements.
+
+Why not inheritance?
+    - With an increasing number of variations and combinations, the number of subclasses, would keep on increasing
+    - This will lead to a maintenance nightmare.
+    - We could get class explosions and rigid designs. 
+
+Why not use instance variable as flags to indicate various variations and combinations?
+    - Even though simpler than inheritance, this isn't much flexible.
+    - With increasing number of variations and combinations instance variable changes.
+    - The simpler subclasses even though wasy less in number inherits unneccessary instance variables. Hence, not clean.
+    - We add functionality to the base class that isn't appropriate for some of the subclasses.
+
+How to generally design something to be extensible yet closed for modidication?
+    - Many of the patterns gives us time-tested designs that protect your code from being modified by supplying a means of extension.
+    - Good example is using Decorator Pattern to follow the Open-Close Principle.
+
+Reality Check
+    - Making OO design flexible and open to extension without modifying existing code takes time and effort.
+    - In general, we don't have the lucury of tying down every party of our designs(and it would probably be wasteful).
+    - Following the Open-Closed Principle usually introduces new levels of abstraction, which adds complexity to our code.
+    - You want to concentrate on those areas that are most likely to change in your designs and apply the principles there.
+
+How to indentify areas that are more important?
+    - Experience in designing OO systems and also a matter of knowing the domain. 
+    - While it seems like a contradiction, there are techniques for allowing code to be extended without direct modification.
+    - Be careful when choosing the areas of code that need to be extended; applying the Open-Closed Principle EVERYWHERE is wastefuland unneccessary, and can lead to complex, hard-to-understand code.
+
+Decorator Pattern
+    - The Decorator Pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extension functionality.
+    - Think of decorator objects as "wrappers".
+    - Decorators have the same supertype as the objects they decorate.
+    - You can use one or more decorators to wrap an object.
+    - Given that the decorator has the same supertype as the object it decorates, we can pass around a decorated object in place of the original(wrapped) object.
+    - The decorator adds its own behvaiour before and/or after delegating to the object it decorates to do the rest of the job.
+    - Objects can be decorated at any time, so we can decorate objects dynamically at runtime with as many decorators as we like.
+
+How it works?
+    - Each Component can be used on its own or wrapped by a decorator.
+    - The ConcreateComponent is the object that we're going to dynamically add new behvaiour to. It extends Component.
+    - Each Decorator HAS-A(wraps) a Component, which means the decorator has an instance variable that holds a reference to a component.
+    - Decorator implement the same interface or abstract class as the Component they are going to decorate.
+    - The ConcreteDecorator inherits (from the Decorator class) an instance varibale for the thing it decorates (the Component that the Decorator wraps).
+    - Decorators can extend the state of the Component.
+    - Decorators can add new methods; However, new behvaiour is typically added by doing computation before or after an existing methods in the Component.
+
+Few things to Remember:
+    - It's vital that the decorator have the same type as the object they are going to decorate. So here, we are using inheritance to achieve the type matching, but we aren't using inheritence to get the behavior.
+    - Decorators need the same "interface" as the components they wrap because they need to stand in place of the Component.
+    - When we compose a decorator with a component, we are adding new behavior. We are acquiring new behavior not by inheriting it from a superclass, but by composing objects together.
+    - If we rely on inheritance, then our behavior can only b determined statically at compile time. In other words, we get only whatever behavior the superclass gives us or that we override. With composition, we can mix and match decorators any way we like, at runtime.
+    - We can implement new decorators at any time to add new behavior. If we relied on inheritance, we'd have to go in change existing code anytime we wanted new behavior. 
+    - If your code is going to rely on Concreet component's type, decorators will break that code.
+    - One of the downsides of the Decorator Pattern: designs using this pattern often result in large number of small classes that can be overwhelming to a developer trying to use the Decorator-based API. 
